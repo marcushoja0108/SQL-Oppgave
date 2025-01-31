@@ -1,0 +1,35 @@
+CREATE TABLE Authors (
+ID INT PRIMARY KEY IDENTITY,
+Name VARCHAR(100),
+Birthdate DATE
+);
+
+CREATE TABLE Books (
+ID INT PRIMARY KEY IDENTITY,
+Title VARCHAR(100),
+Genre VARCHAR(100),
+Published_year INT,
+Author_id INT,
+CONSTRAINT FK_Author FOREIGN KEY (Author_id) REFERENCES Authors(ID)
+);
+
+CREATE TABLE Customers (
+ID INT PRIMARY KEY IDENTITY,
+Name VARCHAR(100),
+Email VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+ID INT PRIMARY KEY IDENTITY,
+Order_date DATE,
+Customer_id INT,
+CONSTRAINT FK_Customer FOREIGN KEY (Customer_id) REFERENCES Customers(ID)
+);
+
+CREATE TABLE OrderItems (
+Order_id INT,
+Book_id INT,
+Quantity INT,
+CONSTRAINT FK_Order_id FOREIGN KEY (Order_id) REFERENCES Orders(ID),
+CONSTRAINT FK_Book_id FOREIGN KEY (Book_id) REFERENCES Books(ID)
+);
