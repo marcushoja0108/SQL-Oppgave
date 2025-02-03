@@ -10,3 +10,7 @@
 --GROUP BY Customers.ID, Customers.Name
 --HAVING COUNT(*) > 1; --Having erstatter WHERE i aggregate funksjoner(Count her)
 
+--Returnerer bøker sortert etter sjanger og år innunder hver sjanger
+--SELECT Books.Title, Books.Published_year
+--FROM Books
+--ORDER BY Books.Genre, Books.Published_year
